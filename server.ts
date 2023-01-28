@@ -1,12 +1,15 @@
-import express from 'express';
-const app: express.Application = express();
+const express = require('express');
+const cors = require('cors')
+const app = express();
 require('dotenv').config();
 require('./config/dbConfig');
-// const todoroute = require("./routes/todoroutes");
+
 const port:(String|Number) = process.env.PORT || 5000;   
+app.use(cors())
 app.use(express.json());
 
-
+const todoroute = require("./routes/ToDoRoutes");
+app.use('/api/todo', todoroute);
 
  
 app.listen(port, () => {

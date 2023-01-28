@@ -8,6 +8,6 @@ db.on('connected', () => {
     console.log(`Mongoose connected to ${db.host}:${db.port}`);
 })
 
-db.on('error', (error:any) => {
+db.on('error', (error:unknown) => {
     console.log(`Mongoose connection error: ${error}`);
 })
